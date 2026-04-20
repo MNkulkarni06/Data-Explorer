@@ -21,6 +21,14 @@ interface ChartWrapperProps {
 export function ChartWrapper({ dataset, type, showGrid = true }: ChartWrapperProps) {
   const chartData = useMemo(() => dataset.data, [dataset]);
 
+  if (!chartData || chartData.length === 0) {
+    return (
+      <div className="w-full h-[350px] flex items-center justify-center border-2 border-dashed border-white/5 rounded-3xl bg-white/2">
+        <p className="text-slate-500 font-serif italic">No data points available in this stream buffer.</p>
+      </div>
+    );
+  }
+
   const commonProps = {
     data: chartData,
     margin: { top: 10, right: 10, left: -20, bottom: 0 },
@@ -184,7 +192,7 @@ export function ChartWrapper({ dataset, type, showGrid = true }: ChartWrapperPro
   return (
     <div className="w-full h-[350px]">
       <ResponsiveContainer width="100%" height="100%">
-        {renderChart() || <div>Error loading chart</div>}
+        {renderChart() as React.ReactElement}
       </ResponsiveContainer>
     </div>
   );

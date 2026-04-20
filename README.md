@@ -1,20 +1,57 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Nexus Data Explorer (AI-Powered)
 
-# Run and deploy your AI Studio app
+Nexus is a sophisticated full-stack data exploration and analysis platform. It combines high-performance visualization with Google Gemini AI to provide actionable insights from your datasets.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
 
-View your app in AI Studio: https://ai.studio/apps/812139c5-a8b5-4f67-8326-d2f7a9c2b5c4
+- **Full-Stack Architecture**: Express.js backend with Vite + React frontend.
+- **Dynamic Visualization**: Multi-chart support (Area, Bar, Line, Pie, Composed) using Recharts.
+- **AI Insights**: Real-time dataset analysis using the `gemini-3-flash-preview` model.
+- **Data Ingestion**: Support for JSON dataset uploads with automatic normalization.
+- **Frosted Glass UI**: Premium design theme with mesh gradients and blur effects.
 
-## Run Locally
+## 🛠️ Tech Stack
 
-**Prerequisites:**  Node.js
+- **Frontend**: React 19, TypeScript, Tailwind CSS 4, Motion, Recharts, Lucide Icons.
+- **Backend**: Node.js, Express, Vite Middleware.
+- **AI**: @google/genai (Gemini AI SDK).
 
+## 📋 Setup & Installation
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Configure API Key**:
+   Ensure your `GEMINI_API_KEY` is set in your environment variables. In AI Studio, this is managed via the Secrets panel.
+
+3. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
+   The app will be available at `http://localhost:3000`.
+
+## 📁 Project Structure
+
+- `server.ts`: Express backend entry point with Vite middleware.
+- `src/App.tsx`: Main dashboard implementation with tabbed navigation.
+- `src/services/aiService.ts`: Integration with Google Gemini API.
+- `src/components/`: Reusable UI components (Charts, Stats, Uploader, AI Panel).
+- `src/data/`: Mock datasets for initial system demonstration.
+- `src/lib/utils.ts`: Utility helpers for Tailwind class merging.
+
+## 🚢 Deployment
+
+1. **Build**:
+   ```bash
+   npm run build
+   ```
+2. **Production Start**:
+   The Express server handles serving the static `dist/` folder in production mode. Set `NODE_ENV=production` and run:
+   ```bash
+   node server.ts
+   ```
+
+---
+*Created with focus on clean, modular architecture and production-ready patterns.*
